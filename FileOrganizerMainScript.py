@@ -4,8 +4,7 @@ import shutil
 
 def organize_files(source_directory, destination_directory):
     # Get a list of files in the source directory
-    files = os.listdir(source_directory)
-    print('files listed')
+    files = repr(os.listdir(source_directory))
 
 
     for file in files:

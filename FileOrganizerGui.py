@@ -2,25 +2,33 @@ import tkinter as tk
 from tkinter import filedialog
 import FileOrganizerMainScript
 
+source_directory = ""
+destination_directory = ""
+
 def browse_source_button():
+    global source_directory
     source_directory = filedialog.askdirectory()
     source_directory_label.config(text=source_directory)
+    print(source_directory)
     return source_directory
 
-
 def browse_destination_button():
+    global destination_directory
     destination_directory = filedialog.askdirectory()
     destination_directory_label.config(text=destination_directory)
+    print(destination_directory)
     return destination_directory
 
 def organize_button():
-    sourceDirectory = browse_source_button
-    destinationDirectory = browse_destination_button
-    if sourceDirectory and destinationDirectory:
-        FileOrganizerMainScript.organize_files(sourceDirectory, destinationDirectory)
+    global source_directory, destination_directory
+    print(source_directory)
+    print(destination_directory)
+    if source_directory and destination_directory:
+        FileOrganizerMainScript.organize_files(source_directory, destination_directory)
         status_label.config(text="Files organized successfully!")
     else:
         status_label.config(text="Please select both source and destination directories.")
+
 
 # Create the GUI window
 window = tk.Tk()
